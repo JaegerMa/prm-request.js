@@ -13,11 +13,11 @@ function request(options, requestCreated)
 	return new Promise((resolve, reject) =>
 	{
 		let request;
-		if(options.protocol === 'http')
+		if(options.protocol === 'http:')
 		{
 			request = http.request(options, resolve);
 		}
-		else if(options.protocol === 'https')
+		else if(options.protocol === 'https:')
 		{
 			request = https.request(options, resolve);
 		}
