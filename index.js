@@ -4,6 +4,8 @@ const http = require('http');
 
 function request(options, requestCreated)
 {
+	if(!options || typeof(options) !== 'object')
+		throw new Error('options must be an object');
 	if(requestCreated && typeof(requestCreated) !== 'function')
 		throw new Error('requestCreated must be a function or null');
 
