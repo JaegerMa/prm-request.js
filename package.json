@@ -1,6 +1,6 @@
 {
   "name": "prm-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Slim promise wrapper for http.request",
   "main": "index.js",
   "scripts": {

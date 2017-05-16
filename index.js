@@ -1,6 +1,7 @@
 'use strict';
 
 const http = require('http');
+const https = require('https');
 
 function request(options, requestCreated)
 {
@@ -11,7 +12,21 @@ function request(options, requestCreated)
 
 	return new Promise((resolve, reject) =>
 	{
-		let request = http.request(options, resolve);
+		let request;
+		if(options.protocol === 'http')
+		{
+			request = http.request(options, resolve);
+		}
+		else if(options.protocol === 'https')
+		{
+			request = https.request(options, resolve);
+		}
+		else
+		{
+			reject('Unknown protocol ' + options.protocol);
+			return;
+		}
+
 		request.on('error', reject);
 
 		if(requestCreated)
